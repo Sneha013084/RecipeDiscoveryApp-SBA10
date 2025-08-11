@@ -12,7 +12,6 @@ export default function useFetch (url){
   const [ data, setData]  = useState(null);
   const[loading , setLoading] = useState(true);
   const[error, setError] = useState(null);
-}
 
 // this will run whenever url changes, no changes return
 
@@ -24,7 +23,7 @@ useEffect(() => {
 
 
      setLoading(true);
-     serError(null);
+     setError(null);
 
 
      //2 conditions:resp-not okay:throw an error /if okay : return with json pasrse response
@@ -48,13 +47,14 @@ useEffect(() => {
      .catch(err =>{
         setError(err.message);
         setLoading(false);
-     })
+     });
 
 }, [url]);
 
 // dependency array : whenever url changes the useEffect will run again
 
 return{data, loading, error };
+}
 
 
 // this hook will return an object wit = current data, loading  and error states : component can use this

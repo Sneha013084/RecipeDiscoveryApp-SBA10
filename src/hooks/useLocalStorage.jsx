@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 import {useState, useEffect} from "React";
+=======
+import {useState, useEffect} from "react";
+>>>>>>> 0462f7d (Removed nested git repo from src and added files normally)
 
 // theis localStorage hook : take two parameters 1)Key to store the value in the localstorage,2) initialValue:To use nothing in the localstorage
 
@@ -8,7 +12,11 @@ export default function useLocalStorage(key, initialValue){
     //declare a state for storedValue and a function to update it.
     //try to get the value from localStorage by using a key and if not return initialstate
 
+<<<<<<< HEAD
     const[ storedValue, setStoredValue] =useStae(()=>{
+=======
+    const[ storedValue, setStoredValue] =useState(()=>{
+>>>>>>> 0462f7d (Removed nested git repo from src and added files normally)
      try{
         const item = window.localStorage.getItem(key);
         return item ? JSON.parse(item) : initialValue;
@@ -25,10 +33,18 @@ export default function useLocalStorage(key, initialValue){
         window.localStorage.setItem( key,JSON.stringify(storedValue))
      }catch{}
 
+<<<<<<< HEAD
     }, [key, initialValue]);
 
     //hook will return current state synnchronized with localStorage and a function to update the state
 
     return {storedValue, setStoredValue}
+=======
+    }, [key, storedValue]);
+
+    //hook will return current state synnchronized with localStorage and a function to update the state
+
+    return [storedValue, setStoredValue]
+>>>>>>> 0462f7d (Removed nested git repo from src and added files normally)
   
 }
